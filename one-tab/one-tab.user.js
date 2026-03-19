@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      5.7
-// @description  让哔哩哔哩、微博、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开，并强制恢复双指滑动前进/后退
+// @version      5.8
+// @description  让哔哩哔哩、知乎、腾讯视频、优酷、抖音等网站所有链接在当前标签页打开，并强制恢复双指滑动前进/后退
 // @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
