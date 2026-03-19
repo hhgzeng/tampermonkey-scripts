@@ -1,11 +1,9 @@
 // ==UserScript==
-// @name         禁止新标签页打开链接
-// @name:en      No New Tab for Some Websites
-// @namespace    http://tampermonkey.net/
+// @name         一个标签页
+// @namespace    https://github.com/hhgzeng
 // @version      5.5
 // @description  让哔哩哔哩、微博、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
-// @description:en Force all Bilibili, Weibo, Zhihu, Tencent Video, Youku links to open in the current tab
-// @author       ChingyuanCheng
+// @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
 // @match        *://*.weibo.com/*
@@ -19,8 +17,8 @@
 // @match        *://*.youku.com/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://update.greasyfork.org/scripts/527007/%E7%A6%81%E6%AD%A2%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%89%93%E5%BC%80%E9%93%BE%E6%8E%A5.user.js
-// @updateURL    https://update.greasyfork.org/scripts/527007/%E7%A6%81%E6%AD%A2%E6%96%B0%E6%A0%87%E7%AD%BE%E9%A1%B5%E6%89%93%E5%BC%80%E9%93%BE%E6%8E%A5.meta.js
+// @downloadURL  https://github.com/hhgzeng/tampermonkey-scripts/blob/main/one-tab/one-tab.user.js
+// @updateURL    https://github.com/hhgzeng/tampermonkey-scripts/blob/main/one-tab/one-tab.user.js
 // ==/UserScript==
 
 (function () {
