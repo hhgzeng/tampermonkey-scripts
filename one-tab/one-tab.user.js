@@ -1,19 +1,17 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      5.6
+// @version      5.7
 // @description  让哔哩哔哩、微博、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开，并强制恢复双指滑动前进/后退
 // @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
-// @match        *://*.weibo.com/*
 // @match        *://*.zhihu.com/*
 // @match        *://*.smods.ru/*
 // @match        *://*.modsbase.com/*
 // @match        *://*.appstorrent.ru/*
 // @match        *://*.ithome.com/*
 // @match        *://*.v.qq.com/*
-// @match        *://v.qq.com/*
 // @match        *://*.youku.com/*
 // @grant        none
 // @run-at       document-start
@@ -34,8 +32,6 @@
       return (
         u.hostname.endsWith('.bilibili.com') ||
         u.hostname === 'bilibili.com' ||
-        u.hostname.endsWith('.weibo.com') ||
-        u.hostname === 'weibo.com' ||
         u.hostname.endsWith('.zhihu.com') ||
         u.hostname === 'zhihu.com' ||
         u.hostname.endsWith('.ithome.com') ||
