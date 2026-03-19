@@ -13,6 +13,7 @@
 // @match        *://*.ithome.com/*
 // @match        *://*.v.qq.com/*
 // @match        *://*.youku.com/*
+// @match        *://*.douyin.com/*
 // @grant        none
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
@@ -46,7 +47,9 @@
         u.hostname.endsWith('.v.qq.com') ||
         u.hostname === 'v.qq.com' ||
         u.hostname.endsWith('.youku.com') ||
-        u.hostname === 'youku.com'
+        u.hostname === 'youku.com' ||
+        u.hostname.endsWith('.douyin.com') ||
+        u.hostname === 'douyin.com'
       );
     } catch {
       return false;
