@@ -17,8 +17,8 @@
 // @match        *://*.youku.com/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://github.com/hhgzeng/tampermonkey-scripts/blob/main/one-tab/one-tab.user.js
-// @updateURL    https://github.com/hhgzeng/tampermonkey-scripts/blob/main/one-tab/one-tab.user.js
+// @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/blob/main/one-tab/one-tab.user.js
+// @updateURL    https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/blob/main/one-tab/one-tab.user.js
 // ==/UserScript==
 
 (function () {
