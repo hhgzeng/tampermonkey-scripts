@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      5.8
+// @version      6.0
 // @description  让哔哩哔哩、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
 // @author       hhgzeng
 // @license      MIT
