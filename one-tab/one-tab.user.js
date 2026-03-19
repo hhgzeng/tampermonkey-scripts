@@ -2,18 +2,13 @@
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
 // @version      5.8
-// @description  让哔哩哔哩、知乎、腾讯视频、优酷、抖音等网站所有链接在当前标签页打开，并强制恢复双指滑动前进/后退
+// @description  让哔哩哔哩、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
 // @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
 // @match        *://*.zhihu.com/*
-// @match        *://*.smods.ru/*
-// @match        *://*.modsbase.com/*
-// @match        *://*.appstorrent.ru/*
-// @match        *://*.ithome.com/*
 // @match        *://*.v.qq.com/*
 // @match        *://*.youku.com/*
-// @match        *://*.douyin.com/*
 // @grant        none
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
@@ -35,21 +30,10 @@
         u.hostname === 'bilibili.com' ||
         u.hostname.endsWith('.zhihu.com') ||
         u.hostname === 'zhihu.com' ||
-        u.hostname.endsWith('.ithome.com') ||
-        u.hostname === 'ithome.com' ||
-        u.hostname.endsWith('.modsbase.com') ||
-        u.hostname === 'modsbase.com' ||
-        u.hostname.endsWith('.appstorrent.ru') ||
-        u.hostname === 'appstorrent.ru' ||
-        u.hostname.endsWith('.smods.ru') ||
-        u.hostname === 'smods.ru' ||
-        // 新增腾讯视频和优酷
         u.hostname.endsWith('.v.qq.com') ||
         u.hostname === 'v.qq.com' ||
         u.hostname.endsWith('.youku.com') ||
-        u.hostname === 'youku.com' ||
-        u.hostname.endsWith('.douyin.com') ||
-        u.hostname === 'douyin.com'
+        u.hostname === 'youku.com'
       );
     } catch {
       return false;
@@ -388,26 +372,7 @@
     }, true);
   }
 
-  // 强制恢复双指滑动前进/后退（集成自 double-finger）
-  function restoreDoubleFingerNav() {
-    const style = document.createElement('style');
-    style.textContent = 'html, body { overscroll-behavior-x: auto !important; touch-action: auto !important; }';
-    const inject = () => {
-      if (document.head) {
-        document.head.appendChild(style);
-      } else if (document.documentElement) {
-        document.documentElement.appendChild(style);
-      }
-    };
-    if (document.head || document.documentElement) {
-      inject();
-    } else {
-      document.addEventListener('DOMContentLoaded', inject);
-    }
-  }
-
   // 启动
   init();
   hijackBilibiliSearch();
-  restoreDoubleFingerNav();
 })();
