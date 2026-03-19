@@ -8,8 +8,8 @@
 // @match        https://*.doubao.com/*
 // @grant        none
 // @run-at       document-start
-// @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/blob/main/doubao-dark/doubao-dark.user.js
-// @updateURL    https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/blob/main/doubao-dark/doubao-dark.user.js
+// @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/doubao-dark/doubao-dark.user.js
+// @updateURL    https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/doubao-dark/doubao-dark.user.js
 // ==/UserScript==
 
 (() => {
