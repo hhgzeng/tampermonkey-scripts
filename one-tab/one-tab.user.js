@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      5.5
-// @description  让哔哩哔哩、微博、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
+// @version      5.6
+// @description  让哔哩哔哩、微博、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开，并强制恢复双指滑动前进/后退
 // @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
@@ -389,7 +389,26 @@
     }, true);
   }
 
+  // 强制恢复双指滑动前进/后退（集成自 double-finger）
+  function restoreDoubleFingerNav() {
+    const style = document.createElement('style');
+    style.textContent = 'html, body { overscroll-behavior-x: auto !important; touch-action: auto !important; }';
+    const inject = () => {
+      if (document.head) {
+        document.head.appendChild(style);
+      } else if (document.documentElement) {
+        document.documentElement.appendChild(style);
+      }
+    };
+    if (document.head || document.documentElement) {
+      inject();
+    } else {
+      document.addEventListener('DOMContentLoaded', inject);
+    }
+  }
+
   // 启动
   init();
   hijackBilibiliSearch();
+  restoreDoubleFingerNav();
 })();
