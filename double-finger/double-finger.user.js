@@ -10,6 +10,7 @@
 // @match        *://*.v.qq.com/*
 // @match        *://*.youku.com/*
 // @match        *://*.douyin.com/*
+// @match        *://*.gdut.edu.cn/*
 // @grant        GM_addStyle
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/double-finger/double-finger.user.js
