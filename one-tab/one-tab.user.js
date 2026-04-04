@@ -1,15 +1,16 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      7.0
-// @description  自动检测当前站点，并允许按站点开启或关闭“始终在当前标签页打开”
+// @version      6.1
+// @description  让哔哩哔哩、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
 // @author       hhgzeng
 // @license      MIT
-// @match        http://*/*
-// @match        https://*/*
-// @grant        GM_getValue
-// @grant        GM_setValue
-// @grant        GM_registerMenuCommand
+// @match        *://*.bilibili.com/*
+// @match        *://*.zhihu.com/*
+// @match        *://*.v.qq.com/*
+// @match        *://*.youku.com/*
+// @match        *://*.gdut.edu.cn/*
+// @grant        none
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
 // @updateURL    https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
@@ -18,113 +19,28 @@
 (function () {
   'use strict';
 
-  const SITE_STATUS_KEY = 'one-tab-site-status';
-  const DEFAULT_ENABLED_SITE_RULES = new Set([
-    'bilibili.com',
-    'zhihu.com',
-    'youku.com',
-    'gdut.edu.cn',
-    'v.qq.com',
-  ]);
-  const SPECIAL_SITE_KEYS = new Map([
-    ['v.qq.com', 'v.qq.com'],
-  ]);
-  const MULTI_PART_SUFFIXES = new Set([
-    'ac.cn',
-    'co.jp',
-    'com.au',
-    'com.cn',
-    'com.hk',
-    'com.tw',
-    'edu.au',
-    'edu.cn',
-    'gov.cn',
-    'gov.uk',
-    'net.au',
-    'net.cn',
-    'org.au',
-    'org.cn',
-    'org.uk',
-  ]);
-
-  const hostname = location.hostname;
-  if (!hostname) return;
-
-  const siteKey = getSiteKey(hostname);
-  const currentState = getCurrentState(siteKey);
-  const IS_BILIBILI = siteKey === 'bilibili.com';
-
-  if (window.self === window.top) {
-    registerMenu(siteKey, currentState);
-  }
-
-  if (!currentState.enabled) return;
+  const IS_BILIBILI = location.hostname.endsWith('bilibili.com');
 
   // —— 辅助函数 —— //
   function isSupportedDomain(url) {
     try {
       if (!url) return false;
       const u = new URL(url, location.href);
-      return getSiteKey(u.hostname) === siteKey;
+      return (
+        u.hostname.endsWith('.bilibili.com') ||
+        u.hostname === 'bilibili.com' ||
+        u.hostname.endsWith('.zhihu.com') ||
+        u.hostname === 'zhihu.com' ||
+        u.hostname.endsWith('.v.qq.com') ||
+        u.hostname === 'v.qq.com' ||
+        u.hostname.endsWith('.youku.com') ||
+        u.hostname === 'youku.com' ||
+        u.hostname.endsWith('.gdut.edu.cn') ||
+        u.hostname === 'gdut.edu.cn'
+      );
     } catch {
       return false;
     }
-  }
-
-  function registerMenu(currentSiteKey, state) {
-    GM_registerMenuCommand(
-      `${currentSiteKey}：${state.enabled ? '✅' : '❌'}`,
-      () => {
-        toggleSite(currentSiteKey, !state.enabled);
-      },
-    );
-  }
-
-  function getCurrentState(currentSiteKey) {
-    const savedStatus = readSiteStatus();
-    if (Object.prototype.hasOwnProperty.call(savedStatus, currentSiteKey)) {
-      return {
-        enabled: Boolean(savedStatus[currentSiteKey]),
-        source: 'saved',
-      };
-    }
-
-    return {
-      enabled: DEFAULT_ENABLED_SITE_RULES.has(currentSiteKey),
-      source: 'default',
-    };
-  }
-
-  function toggleSite(currentSiteKey, enabled) {
-    const nextStatus = readSiteStatus();
-    nextStatus[currentSiteKey] = enabled;
-    GM_setValue(SITE_STATUS_KEY, nextStatus);
-    location.reload();
-  }
-
-  function readSiteStatus() {
-    const saved = GM_getValue(SITE_STATUS_KEY, {});
-    return isPlainObject(saved) ? saved : {};
-  }
-
-  function isPlainObject(value) {
-    return value !== null && typeof value === 'object' && !Array.isArray(value);
-  }
-
-  function getSiteKey(currentHost) {
-    if (SPECIAL_SITE_KEYS.has(currentHost)) return SPECIAL_SITE_KEYS.get(currentHost);
-    if (currentHost === 'localhost') return currentHost;
-    if (/^\d{1,3}(\.\d{1,3}){3}$/.test(currentHost)) return currentHost;
-
-    const parts = currentHost.split('.').filter(Boolean);
-    if (parts.length <= 2) return currentHost;
-
-    const lastTwoParts = parts.slice(-2).join('.');
-    if (MULTI_PART_SUFFIXES.has(lastTwoParts) && parts.length >= 3) {
-      return parts.slice(-3).join('.');
-    }
-
-    return lastTwoParts;
   }
 
   function isMatchPage() {
