@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      6.1
+// @version      6.2
 // @description  让哔哩哔哩、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
 // @author       hhgzeng
 // @license      MIT
@@ -10,6 +10,7 @@
 // @match        *://*.v.qq.com/*
 // @match        *://*.youku.com/*
 // @match        *://*.gdut.edu.cn/*
+// @match        *://*.xidian.edu.cn/*
 // @grant        none
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
@@ -36,7 +37,9 @@
         u.hostname.endsWith('.youku.com') ||
         u.hostname === 'youku.com' ||
         u.hostname.endsWith('.gdut.edu.cn') ||
-        u.hostname === 'gdut.edu.cn'
+        u.hostname === 'gdut.edu.cn' ||
+        u.hostname.endsWith('.xidian.edu.cn') ||
+        u.hostname === 'xidian.edu.cn'
       );
     } catch {
       return false;
