@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         恢复双指滑动导航
 // @namespace    https://github.com/hhgzeng
-// @version      1.1
+// @version      1.2
 // @description  解决部分网站因 CSS 拦截导致 Chrome 双指滑动导航失效的问题
 // @author       hhgzeng
 // @license      MIT
