@@ -11,6 +11,9 @@
 // @match        *://*.youku.com/*
 // @match        *://*.gdut.edu.cn/*
 // @match        *://*.xidian.edu.cn/*
+// @match        *://*.volcengine.com/*
+// @match        *://*.aliyun.com/*
+// @match        *://*.modelscope.cn/*
 // @grant        none
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
@@ -39,7 +42,13 @@
         u.hostname.endsWith('.gdut.edu.cn') ||
         u.hostname === 'gdut.edu.cn' ||
         u.hostname.endsWith('.xidian.edu.cn') ||
-        u.hostname === 'xidian.edu.cn'
+        u.hostname === 'xidian.edu.cn' ||
+        u.hostname.endsWith('.volcengine.com') ||
+        u.hostname === 'volcengine.com' ||
+        u.hostname.endsWith('.aliyun.com') ||
+        u.hostname === 'aliyun.com' ||
+        u.hostname.endsWith('.modelscope.cn') ||
+        u.hostname === 'modelscope.cn'
       );
     } catch {
       return false;

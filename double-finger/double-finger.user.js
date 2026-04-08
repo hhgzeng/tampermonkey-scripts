@@ -12,6 +12,9 @@
 // @match        *://*.douyin.com/*
 // @match        *://*.gdut.edu.cn/*
 // @match        *://*.xidian.edu.cn/*
+// @match        *://*.volcengine.com/*
+// @match        *://*.aliyun.com/*
+// @match        *://*.modelscope.cn/*
 // @grant        GM_addStyle
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/double-finger/double-finger.user.js
