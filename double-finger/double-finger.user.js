@@ -7,8 +7,6 @@
 // @license      MIT
 // @match        *://*.bilibili.com/*
 // @match        *://*.zhihu.com/*
-// @match        *://*.v.qq.com/*
-// @match        *://*.youku.com/*
 // @match        *://*.douyin.com/*
 // @match        *://*.gdut.edu.cn/*
 // @match        *://*.xidian.edu.cn/*

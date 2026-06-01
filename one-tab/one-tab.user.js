@@ -2,13 +2,11 @@
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
 // @version      6.3
-// @description  让哔哩哔哩、知乎、腾讯视频、优酷等网站所有链接在当前标签页打开
+// @description  让哔哩哔哩、知乎等网站所有链接在当前标签页打开
 // @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
 // @match        *://*.zhihu.com/*
-// @match        *://*.v.qq.com/*
-// @match        *://*.youku.com/*
 // @match        *://*.gdut.edu.cn/*
 // @match        *://*.xidian.edu.cn/*
 // @match        *://*.volcengine.com/*
@@ -35,10 +33,6 @@
         u.hostname === 'bilibili.com' ||
         u.hostname.endsWith('.zhihu.com') ||
         u.hostname === 'zhihu.com' ||
-        u.hostname.endsWith('.v.qq.com') ||
-        u.hostname === 'v.qq.com' ||
-        u.hostname.endsWith('.youku.com') ||
-        u.hostname === 'youku.com' ||
         u.hostname.endsWith('.gdut.edu.cn') ||
         u.hostname === 'gdut.edu.cn' ||
         u.hostname.endsWith('.xidian.edu.cn') ||
