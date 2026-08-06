@@ -1,18 +1,16 @@
 // ==UserScript==
 // @name         恢复双指滑动导航
 // @namespace    https://github.com/hhgzeng
-// @version      1.2
+// @version      1.3
 // @description  解决部分网站因 CSS 拦截导致 Chrome 双指滑动导航失效的问题
 // @author       hhgzeng
 // @license      MIT
 // @match        *://*.bilibili.com/*
 // @match        *://*.zhihu.com/*
-// @match        *://*.douyin.com/*
 // @match        *://*.gdut.edu.cn/*
 // @match        *://*.xidian.edu.cn/*
 // @match        *://*.volcengine.com/*
 // @match        *://*.aliyun.com/*
-// @match        *://*.modelscope.cn/*
 // @grant        GM_addStyle
 // @run-at       document-end
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/double-finger/double-finger.user.js

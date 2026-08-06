@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         一个标签页
 // @namespace    https://github.com/hhgzeng
-// @version      6.3
+// @version      6.4
 // @description  让哔哩哔哩、知乎等网站所有链接在当前标签页打开
 // @author       hhgzeng
 // @license      MIT
@@ -11,7 +11,6 @@
 // @match        *://*.xidian.edu.cn/*
 // @match        *://*.volcengine.com/*
 // @match        *://*.aliyun.com/*
-// @match        *://*.modelscope.cn/*
 // @grant        none
 // @run-at       document-start
 // @downloadURL  https://raw.githubusercontent.com/hhgzeng/tampermonkey-scripts/main/one-tab/one-tab.user.js
@@ -40,9 +39,7 @@
         u.hostname.endsWith('.volcengine.com') ||
         u.hostname === 'volcengine.com' ||
         u.hostname.endsWith('.aliyun.com') ||
-        u.hostname === 'aliyun.com' ||
-        u.hostname.endsWith('.modelscope.cn') ||
-        u.hostname === 'modelscope.cn'
+        u.hostname === 'aliyun.com'
       );
     } catch {
       return false;
